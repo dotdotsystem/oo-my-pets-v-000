@@ -1,26 +1,26 @@
 
-require "pry"
+
 class Owner
   attr_accessor :name, :pets
   attr_reader :species
-  OWNERS = []
+  @@owners = []
 
   def self.reset_all
-    OWNERS.clear
+    @@owners.clear
   end
 
   def self.all
-    OWNERS
+  @@owners
   end
 
   def self.count
-    OWNERS.size
+    @@owners.size
   end
 
   def initialize(species)
     @pets = {fishes: [], cats: [], dogs: []}
     @species = species
-    OWNERS << self
+    @@owners << self
   end
 
   def say_species
@@ -62,6 +62,6 @@ class Owner
 
   def list_pets
     "I have #{@pets[:fishes].count} fish, #{@pets[:dogs].count} dog(s), and #{@pets[:cats].count} cat(s)."
-    binding.pry
+    #binding.pry
   end
 end
